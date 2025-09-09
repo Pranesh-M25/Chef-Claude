@@ -1,15 +1,14 @@
 import { Header } from "./Components/header";
-import {Form} from "./Components/form.jsx"
-import { createRoot } from "react-dom/client";
-import App from "./practice";
+import { Form } from "./Components/form.jsx";
 
-const root = createRoot(document.getElementById("root"))
+// App.jsx should just be your main component that returns the page layout.
+function App() {
+  return (
+    <>
+      <Header />
+      <Form />
+    </>
+  );
+}
 
-root.render(
-  <>
-  <Header />
-  <Form/> 
-  {/* <App/> */}
-  
-  </>
-)
+export default App;
