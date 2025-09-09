@@ -1,6 +1,6 @@
-import ReactMarkdown from 'react-markdown'; // 1. Import the library
+import ReactMarkdown from 'react-markdown'; 
 
-// 2. Accept `recipeText` and `isLoading` as props
+
 export default function Recipe({ recipeText, isLoading }) {
   return (
     <section>

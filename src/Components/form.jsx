@@ -20,7 +20,7 @@ export function Form() {
     formData.set("ingredient", "");
   }
 
-  // 3. This function now calls the fetchRecipe from our hook
+  
   function handleGetRecipe() {
     setRecipeShown(true);
     fetchRecipe(ingredients);
@@ -37,6 +37,7 @@ export function Form() {
           <div className="bullet">
             <h1 className="ingTitle">Ingredients on Hand: </h1>
             <ul>{listItems}</ul>
+            
           </div>
         )}
         {ingredients.length >= 5 && (
@@ -49,6 +50,10 @@ export function Form() {
             <button onClick={handleGetRecipe} disabled={isLoading}>
               {isLoading ? "Generating..." : "Get a recipe"}
             </button>
+
+               <button onClick={() => window.location.reload()} className="clearBtn">
+        Clear
+      </button>
           </div>
         )}
       </section>
