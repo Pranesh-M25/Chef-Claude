@@ -217,8 +217,9 @@ body {
   }
 
   .suggested-recipe-container h2 {
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: center;
     margin-left: 0; /* Remove the fixed margin to ensure centering */
   }
 }
+
