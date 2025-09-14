@@ -17,7 +17,7 @@ export function useGemini() {
       const model = genAI.getGenerativeModel({ model: "gemini-2.5-pro" });
 
       const ingredientsString = ingredients.join(", ");
-      const prompt = `You are a master chef. Based on the following ingredients, create a delicious recipe. Provide the dish name, and step-by-step instructions.Please do not add any other ingredients other than the provided ones. Keep the recipe as simple as possible as well as very detailed and regarding the cuisine, based on the ingredients provided automatically find out the cuisine in which these ingredients are commonly used and mention the cuisine also. Please format the response using markdown. The ingredients are: ${ingredientsString}`;
+      const prompt = `You are a master chef. Based on the following ingredients, create a delicious recipe. Provide the dish name, and step-by-step instructions.Please do not add any other ingredients other than the provided ones. Keep the recipe as simple as possible as well as very detailed and regarding the cuisine, based on the ingredients provided automatically find out the cuisine in which these ingredients are commonly used and mention the cuisine also.If the user inputs ingredients name in non english names for example maavu is a tamil word which means floor and thakkali means tomato in tamil, please transt=late them to english while seaching for recipe . Please format the response using markdown. The ingredients are: ${ingredientsString}`;
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
@@ -34,4 +34,5 @@ export function useGemini() {
 
   // The hook returns the state and the function to the component
   return { generatedRecipe, isLoading, fetchRecipe };
+
 }
