@@ -20,7 +20,6 @@ export function Form() {
     formData.set("ingredient", "");
   }
 
-  
   function handleGetRecipe() {
     setRecipeShown(true);
     fetchRecipe(ingredients);
@@ -29,7 +28,12 @@ export function Form() {
   return (
     <main>
       <form action={Submit} className="form">
-        <input className="inputBox" placeholder="Ingredients here..." type="text" name="ingredient" />
+        <input
+          className="inputBox"
+          placeholder="Ingredients here..."
+          type="text"
+          name="ingredient"
+        />
         <button className="addBtn">Add ingredient</button>
       </form>
       <section className="ingList">
@@ -37,7 +41,6 @@ export function Form() {
           <div className="bullet">
             <h1 className="ingTitle">Ingredients on Hand: </h1>
             <ul>{listItems}</ul>
-            
           </div>
         )}
         {ingredients.length >= 5 && (
@@ -47,19 +50,30 @@ export function Form() {
               <p>Generate a recipe from your list of ingredients.</p>
             </div>
             {/* 4. The button calls our new handler function */}
-            <button onClick={handleGetRecipe} disabled={isLoading}>
-              {isLoading ? "Generating..." : "Get a recipe"}
-            </button>
+            <div className="button-group">
+              <button
+                className="getRecipeBtn"
+                onClick={handleGetRecipe}
+                disabled={isLoading}
+              >
+                {isLoading ? "Generating..." : "Get a recipe"}
+              </button>
 
-               <button onClick={() => window.location.reload()} className="clearBtn">
-        Clear
-      </button>
+              <button
+                onClick={() => window.location.reload()}
+                className="clearBtn"
+              >
+                Clear
+              </button>
+            </div>
           </div>
         )}
       </section>
 
       {/* This part remains the same, passing the props down */}
-      {recipeShown && <Recipe recipeText={generatedRecipe} isLoading={isLoading} />}
+      {recipeShown && (
+        <Recipe recipeText={generatedRecipe} isLoading={isLoading} />
+      )}
     </main>
   );
 }
